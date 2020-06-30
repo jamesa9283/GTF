@@ -6,6 +6,8 @@ any leeway through just fiddling
 import tactic
 import data.real.basic 
 import data.complex.exponential
+import analysis.analytic.basic
+import measure_theory.l1_space
 
 noncomputable theory
 open_locale classical
@@ -78,3 +80,10 @@ begin
   exact hp,
 end
 
+lemma tanp_zero (p q : ℕ) : tanp 0 p q = 0 :=
+begin 
+  unfold tanp,
+  rw [sinp_zero, zero_div],
+end
+
+-- We have no πₚ function defined and that's annoying.
