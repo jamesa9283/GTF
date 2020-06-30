@@ -6,8 +6,6 @@ any leeway through just fiddling
 import tactic
 import data.real.basic 
 import data.complex.exponential
-import analysis.analytic.basic
-import measure_theory.l1_space
 
 noncomputable theory
 open_locale classical
@@ -86,4 +84,14 @@ begin
   rw [sinp_zero, zero_div],
 end
 
+lemma secp_zero (p q : ℕ) (hp : p ≠ 0) (hq : q ≠ 0) : secp 0 p q = 1 :=
+begin
+  unfold secp,
+  rw cosp_zero, 
+  norm_num,
+  exact hp, 
+  exact hq,
+end
+
 -- We have no πₚ function defined and that's annoying.
+
