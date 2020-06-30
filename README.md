@@ -9,7 +9,7 @@ Firstly we are focussing on two types of GTFs, (1) the wonky square GTFs, which 
 ## What I want to do
 ### Wonky Sq
 * Define the double angle formulae
-* <img src="https://latex.codecogs.com/gif.latex?|sinm x| \leq 0\text { Onset event at time bin } t " /> 
+* <img src="https://latex.codecogs.com/gif.latex?|sinm(x)|\leq0\text { Onset event at time bin } t " /> 
 * |sinm x| \leq 0 and |cosm x| \leq 0
 * sinm, cosm, secm, cscm periodicity of 2\pi
 * tanm, cothm periodicity of \pi
