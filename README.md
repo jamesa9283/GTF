@@ -13,11 +13,11 @@ Firstly we are focussing on two types of GTFs, (1) the wonky square GTFs, which 
 * sinm, cosm, secm, cscm periodicity of <img src="https://latex.codecogs.com/gif.latex?2\pi" />
 * tanm, cothm periodicity of <img src="https://latex.codecogs.com/gif.latex?\pi" />
 *  <img src="https://latex.codecogs.com/gif.latex?\displaystyle{lim_{x\to0}{\text{sin}_m(x)/x}=1}" />
-* lim_{x \to 0}{sinm x / x} = 1
 * Differentiation?!?
 
 ### p-GTF
 * Get them to work...
+* Work out how to use FTC in lean.
 
 ## What I have done
 ### Wonky Sq
