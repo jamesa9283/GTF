@@ -12,7 +12,7 @@ Firstly we are focussing on two types of GTFs, (1) the wonky square GTFs, which 
 * <img src="https://latex.codecogs.com/gif.latex?|\text{sin}_m(x)|\leq0\text{%20and%20}|\text{cos}_m(x)|\leq0" /> 
 * sinm, cosm, secm, cscm periodicity of <img src="https://latex.codecogs.com/gif.latex?2\pi" />
 * tanm, cothm periodicity of <img src="https://latex.codecogs.com/gif.latex?\pi" />
-*  <img src="https://latex.codecogs.com/gif.latex?lim_{x\to0}{sinm(x)/x}=1" />
+*  <img src="https://latex.codecogs.com/gif.latex?\displaystyle{lim_{x\to0}{\text{sin}_m(x)/x}=1}" />
 * lim_{x \to 0}{sinm x / x} = 1
 * Differentiation?!?
 
