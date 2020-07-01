@@ -10,7 +10,7 @@ Firstly we are focussing on two types of GTFs, (1) the wonky square GTFs, which 
 ### Wonky Sq
 * Define the double angle formulae
 * <img src="https://latex.codecogs.com/gif.latex?|\text{sin}_m(x)|\leq0\text{%20and%20}|\text{cos}_m(x)|\leq0" /> 
-* sinm, cosm, secm, cscm periodicity of <img src="https://latex.codecogs.com/gif.latex?2\pi" />
+
 * tanm, cothm periodicity of <img src="https://latex.codecogs.com/gif.latex?\pi" />
 *  <img src="https://latex.codecogs.com/gif.latex?\displaystyle{lim_{x\to0}{\text{sin}_m(x)/x}=1}" />
 * Differentiation?!?
@@ -18,6 +18,14 @@ Firstly we are focussing on two types of GTFs, (1) the wonky square GTFs, which 
 ### p-GTF
 * Get them to work...
 * Work out how to use FTC in lean.
+
+## Doing
+### Wonky Sq
+* sinm, cosm, secm, cscm periodicity of <img src="https://latex.codecogs.com/gif.latex?2\pi" />
+
+### p-GTFs
+
+
 
 ## What I have done
 ### Wonky Sq
