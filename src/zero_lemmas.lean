@@ -1,7 +1,8 @@
 import tactic
 import basic
 import data.real.basic 
-import data.complex.exponential
+import data.complex.exponential 
+import analysis.special_functions.pow
 
 /-! 
 # Defining the functions at zero
@@ -17,7 +18,7 @@ open_locale classical
  
 open real
 
-lemma sinm_zero (m : ℕ): sinm 0 m = 0 :=
+lemma sinm_zero (m : ℝ): sinm 0 m = 0 :=
 begin
   unfold sinm,
   rw sin_zero,
@@ -26,23 +27,25 @@ end
 
 -- we know that p q > 0 because the negative values get funny and annoying.
 
-lemma cosm_zero (m : ℕ) (hm : m ≠ 0) : cosm 0 m = 1 :=
+#print instances has_pow
+
+lemma cosm_zero (m : ℝ) (hm : m ≠ 0) : cosm 0 m = 1 :=
 begin
   unfold cosm,
   unfold radius,
   rw [cos_zero, one_mul, sin_zero, abs_zero, abs_one],
-  rw zero_pow',
-  norm_num,
-  exact hm,
-end
+  simp,
+  rw [zero_rpow, zero_add, one_rpow],
+  simp, exact hm,
+  end 
 
-lemma tanm_zero (m : ℕ) : tanm 0 m = 0 :=
+lemma tanm_zero (m : ℝ) : tanm 0 m = 0 :=
 begin 
   unfold tanm,
   rw [sinm_zero, zero_div],
 end
 
-lemma secm_zero (m : ℕ) (hm : m ≠ 0) : secm 0 m = 1 :=
+lemma secm_zero (m : ℝ) (hm : m ≠ 0) : secm 0 m = 1 :=
 begin
   unfold secm,
   rw cosm_zero, 
@@ -52,6 +55,6 @@ end
 
 /-!
 ## p-GTFs
-
+nothing yet
 -/
 
