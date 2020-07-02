@@ -18,6 +18,9 @@ open_locale classical
  
 open real
 
+/- 008 
+Here we prove that sinₘ 0 = 0.
+-/
 lemma sinm_zero (m : ℝ): sinm 0 m = 0 :=
 begin
   unfold sinm,
@@ -29,6 +32,9 @@ end
 
 #print instances has_pow
 
+/- 009
+Here we prove a lemma similar to 008, but for cosₘ
+-/
 lemma cosm_zero (m : ℝ) (hm : m ≠ 0) : cosm 0 m = 1 :=
 begin
   unfold cosm,
@@ -39,12 +45,18 @@ begin
   simp, exact hm,
   end 
 
+/- 010 
+Similar to 008, but for tanₘ
+-/
 lemma tanm_zero (m : ℝ) : tanm 0 m = 0 :=
 begin 
   unfold tanm,
   rw [sinm_zero, zero_div],
 end
 
+/- 011
+Similar to 008, but for secₘ
+-/
 lemma secm_zero (m : ℝ) (hm : m ≠ 0) : secm 0 m = 1 :=
 begin
   unfold secm,

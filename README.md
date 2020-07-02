@@ -6,6 +6,10 @@ This a summer project as part of the Xena Project's summer project sessions ran 
 
 Firstly we are focussing on two types of GTFs, (1) the wonky square GTFs, which are heavily reliant on |x|^m + |y|^m = 1 and (2) the p-GTFs which are heavily reliant on an integral definition.
 
+## Numbering System
+
+This is a note on my numbering system. I am proving things in the order that I can work out to prove them. This means the numbering is borked, they are numbers as they are proved.
+
 ## What I want to do
 ### Wonky Sq
 * Define the double angle formulae
@@ -21,7 +25,7 @@ Firstly we are focussing on two types of GTFs, (1) the wonky square GTFs, which 
 
 ## Doing
 ### Wonky Sq
-* sinm, cosm, secm, cscm periodicity of <img src="https://latex.codecogs.com/gif.latex?2\pi" />
+* secm, cscm periodicity of <img src="https://latex.codecogs.com/gif.latex?2\pi" />
 
 ### p-GTFs
 
@@ -31,6 +35,8 @@ Firstly we are focussing on two types of GTFs, (1) the wonky square GTFs, which 
 ### Wonky Sq
 * Defined
 * Proved the Zero lemmas
+* sinm, cosm periodicity of <img src="https://latex.codecogs.com/gif.latex?2\pi" />
+
 
 ### p-GTF
 
