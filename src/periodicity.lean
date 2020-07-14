@@ -110,6 +110,20 @@ begin
   ring,
 end
 
+/- 034
+ Just something I forgot I needed
+-/
+
+lemma sinm_halfpi (x m : ℝ) (H : m ≠ 0): sinm (pi/2) m = 1 :=
+begin
+  unfold sinm,
+  unfold radius,
+  rw [sin_half_pi,cos_half_pi],
+  norm_num,
+  rw zero_rpow H,
+  norm_num,
+end
+
 /- 023
  Now to prove that that cos ((2n + 1)π/2) = 0 ∀ n ∈ ℕ
 -/
@@ -201,11 +215,21 @@ end
 /- 030
 Lets now prove that sinₘ (x + π/2) = cosₘ x 
 -/
-lemma sinm_shift_eq_cosm ( x m : ℝ) : sinm (x + pi/2) m = cosm x m :=
+lemma sinm_plus_half_pi_eq_cosm ( x m : ℝ) (h : m ≠ 0): sinm (x + pi/2) m = cosm x m :=
 begin
   -- want addition formula first
-  rw sinm,
-  sorry
+  rw sinm_add x (pi/2) m;
+  rw [cos_half_pi, mul_zero, sin_half_pi],
+  norm_num,
+  unfold cosm, 
+  unfold radius,
+  simp only [one_div_eq_inv],
+  ring,
+end
+
+lemma sinm_plus_half_pi_eq_negsinm ( x m : ℝ) (h : m ≠ 0) : cosm (x + pi/2) m = - sinm x m :=
+begin
+  rw cosm_add,
 end
 
 
