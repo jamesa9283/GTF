@@ -54,6 +54,10 @@ begin
   rw [mul_comm, add_comm],
 end
 
+/- 035
+
+-/
+
 lemma sinm_2x (x m : ℝ) : sinm (2*x) m = (2 * sin x * cos x) / (|(cos x) ^2 - (sin x) ^2| ^ m + |2 * sin x * cos x|^m)^ (1/m)  :=
 begin
   rw [mul_comm, mul_two, sinm_add];
@@ -61,10 +65,40 @@ begin
   rw [mul_comm], rw mul_assoc, rw mul_comm (sin x) (cos x),
 end
 
+/- 036
+
+-/
+
 lemma cosm_2x (x m : ℝ) : cosm (2*x) m = ((cos x) ^ 2 - (sin x) ^ 2) / (|(cos x) ^2 - (sin x) ^2| ^ m + |2 * sin x * cos x|^m)^ (1/m)  :=
 begin
   rw [mul_comm, mul_two, cosm_add];
   repeat {rw [←pow_two]},
   rw [mul_comm (sin x) (cos x), ←mul_two],
   rw [mul_comm (cos x) (sin x), mul_comm (sin x * cos x) 2, mul_assoc],
+end
+
+/- 036
+
+-/
+
+lemma sinm_sub (x m y : ℝ) : sinm (x - y) m = (sin x * cos y - cos x * sin y)/(|cos x * cos y + sin x * sin y|^m + |sin x * cos y - cos x * sin y|^m)^(1/m) :=
+begin
+  rw sub_eq_add_neg,
+  rw [sinm_add x (-y), cos_neg, sin_neg],
+  repeat {rw ←neg_mul_eq_mul_neg},
+  rw [one_div_eq_inv, sub_neg_eq_add], 
+  ring,
+end
+
+/- 039
+
+-/
+
+lemma cosm_sub (x m y : ℝ) : cosm (x - y) m = (cos x * cos y + sin x * sin y) / (|cos x * cos y + sin x * sin y| ^ m + |sin x * cos y - cos x * sin y|^m)^ (1/m) :=
+begin
+  rw sub_eq_add_neg,
+  rw [cosm_add x (-y), cos_neg, sin_neg],
+  repeat {rw ←neg_mul_eq_mul_neg},
+  rw [one_div_eq_inv, sub_neg_eq_add], 
+  ring,
 end

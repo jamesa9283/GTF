@@ -1,6 +1,7 @@
 import tactic
 import data.real.basic 
-import data.complex.exponential analysis.special_functions.pow
+import data.complex.exponential 
+import analysis.special_functions.pow
 
 noncomputable theory
 open_locale classical
@@ -8,6 +9,7 @@ open_locale classical
 open real
 
 notation `|`x`|` := abs x
+
 
 /-!
 # General Trigometric Functions
@@ -23,9 +25,9 @@ go with the equation version, thing.
 -/
 
 /- 001 -/
-def wonky_square (x y : ℝ) (m : ℕ) := ∀ m > 0, |x| ^ m + |y| ^ m = 1
+def wonky_square (x y :ℝ) (m : ℕ) := ∀ m > 0, |x| ^ m + |y| ^ m = 1
 
-#check wonky_square
+-- #check wonky_square
 
 /- 
 Wonky square now exists, it's an amazing name. So we can go forward and to 
@@ -62,6 +64,78 @@ def secm (θ m : ℝ) := 1 / cosm θ m
 /- 007 -/
 def cscm (θ m : ℝ) := 1 / secm θ m
 
+/- 036
+
+-/
+lemma sinm_unfolded (x m : ℝ) : sinm x m = sin x / (|cos x| ^ m + |sin x| ^ m) ^ (1 / m) :=
+begin
+  unfold sinm radius,
+  rw [←div_eq_mul_one_div, add_comm],
+end
+
+/- 039
+
+-/
+
+lemma cosm_unfolded (x m : ℝ) : cosm x m = cos x / (|cos x| ^ m + |sin x| ^ m) ^ (1 / m) :=
+begin
+  unfold cosm radius,
+  rw [←div_eq_mul_one_div, add_comm],
+end
+
+
+/- 043
+
+-/
+
+lemma exists_cos_pi_half_eq_zero (x m : ℝ) (n : ℤ) : ∃ n, x = (2*n + 1) * pi / 2 → cos x = 0  :=
+begin
+  use 0,
+  intros f,
+  rw [mul_zero, zero_add, one_mul] at f,
+  rw f,
+  simp,
+end
+
+/- 042
+
+-/
+
+
+theorem tanm_eq_tan (x m : ℝ) (n : ℤ) (f : radius x m ≠ 0): tanm x m = tan x :=
+begin
+  unfold tanm sinm cosm,
+  rw tan_eq_sin_div_cos,
+  by_cases h : cos x = 0,
+  {rw h, simp},
+  {rw div_eq_div_iff,
+    {ring,},
+    {exact mul_ne_zero h f,},
+    {exact h}
+  },
+end
+
+lemma radius_powm (a b c x m : ℝ) (h : m ≠ 0): radius x m ^ m = 1/(|sin x| ^ m + |cos x| ^ m) :=
+begin
+   unfold radius,
+   rw div_rpow,
+   rw [one_rpow],
+   refine congr rfl _, -- I love this tactic, It's amazing!!
+   --rw inv_rpow,
+   --rw ←pow_rmul (|sin x| ^ m + |cos x| ^ m) (1 / m) m,
+   rw ←rpow_mul,
+   rw mul_comm,
+   rw ←div_eq_mul_one_div,
+   rw div_self,
+   rw rpow_one,
+   exact h,
+   {apply add_nonneg,
+  repeat {apply rpow_nonneg_of_nonneg, apply abs_nonneg},},
+  {norm_num,},
+  {apply rpow_nonneg_of_nonneg,
+  apply add_nonneg,
+  repeat {apply rpow_nonneg_of_nonneg, apply abs_nonneg},}
+end
 
 
 /-!

@@ -227,11 +227,68 @@ begin
   ring,
 end
 
+/- 034
+
+-/
+
+
 lemma sinm_plus_half_pi_eq_negsinm ( x m : ℝ) (h : m ≠ 0) : cosm (x + pi/2) m = - sinm x m :=
 begin
-  rw cosm_add,
+  rw [cosm_add, cos_half_pi, sin_half_pi, mul_zero, mul_zero, mul_one, zero_sub, zero_add, mul_one],
+  rw abs_neg,
+  unfold sinm,
+  unfold radius,
+  ring,
 end
 
+/- 035.0
 
+-/
 
+lemma sinm_self_sim_pos (x m : ℝ) : sinm (x + pi) m = - sinm x m :=
+begin
+  rw sinm_add,
+  rw [cos_pi, sin_pi, mul_comm, neg_one_mul, mul_zero, add_zero, mul_zero, sub_zero, mul_comm, neg_one_mul],
+  repeat {rw[abs_neg]},
+  apply neg_inj,
+  rw [neg_neg, neg_div, neg_neg, sinm_unfolded],
+end
 
+/- 35.5
+
+-/
+
+lemma sinm_self_sim_neg (x m : ℝ) : sinm (x - pi) m = - sinm x m :=
+begin
+  rw sinm_sub,
+  rw [sin_pi, cos_pi, mul_neg_eq_neg_mul_symm, mul_zero, mul_one],
+  norm_num,
+  apply neg_inj,
+  rw [neg_neg, neg_div, neg_neg,inv_eq_one_div, sinm_unfolded],
+end
+
+/- 040
+
+-/
+
+lemma cosm_self_sim_neg (x m : ℝ) : cosm (x - pi) m = - cosm x m :=
+begin
+  rw cosm_sub,
+  rw [sin_pi, cos_pi, mul_neg_eq_neg_mul_symm, mul_zero, mul_one],
+  norm_num,
+  apply neg_inj,
+  rw [neg_neg, neg_div, neg_neg,inv_eq_one_div, cosm_unfolded],
+end
+
+/- 041
+
+-/
+
+lemma cosm_self_sim_pos (x m : ℝ) : cosm (x + pi) m = - cosm x m :=
+begin
+  rw cosm_add,
+  rw [sin_pi, cos_pi, mul_neg_eq_neg_mul_symm, mul_zero, mul_one],
+  norm_num,
+  apply neg_inj,
+  rw [neg_neg, neg_div, neg_neg,inv_eq_one_div, cosm_unfolded],
+end

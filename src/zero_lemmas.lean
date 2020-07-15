@@ -30,7 +30,7 @@ end
 
 -- we know that p q > 0 because the negative values get funny and annoying.
 
-#print instances has_pow
+-- #print instances has_pow
 
 /- 009
 Here we prove a lemma similar to 008, but for cosₘ
