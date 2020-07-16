@@ -12,10 +12,6 @@ This is a note on my numbering system. I am proving things in the order that I c
 
 ## What I want to do
 ### Wonky Sq
-* Define the double angle formulae
-* <img src="https://latex.codecogs.com/gif.latex?|\text{sin}_m(x)|\leq0\text{%20and%20}|\text{cos}_m(x)|\leq0" /> 
-
-* tanm, cothm periodicity of <img src="https://latex.codecogs.com/gif.latex?\pi" />
 *  <img src="https://latex.codecogs.com/gif.latex?\displaystyle{lim_{x\to0}{\text{sin}_m(x)/x}=1}" />
 * Differentiation?!?
 
@@ -25,7 +21,7 @@ This is a note on my numbering system. I am proving things in the order that I c
 
 ## Doing
 ### Wonky Sq
-* secm, cscm periodicity of <img src="https://latex.codecogs.com/gif.latex?2\pi" />
+
 
 ### p-GTFs
 
@@ -36,7 +32,9 @@ This is a note on my numbering system. I am proving things in the order that I c
 * Defined
 * Proved the Zero lemmas
 * sinm, cosm periodicity of <img src="https://latex.codecogs.com/gif.latex?2\pi" />
-
+* Define the double angle formulae
+* <img src="https://latex.codecogs.com/gif.latex?|\text{sin}_m(x)|\leq0\text{%20and%20}|\text{cos}_m(x)|\leq0" /> (This was stupid anyways)
+* Prove that `tanm x = tan x`
 
 ### p-GTF
 
