@@ -13,7 +13,8 @@ This is a note on my numbering system. I am proving things in the order that I c
 ## What I want to do
 ### Wonky Sq
 *  <img src="https://latex.codecogs.com/gif.latex?\displaystyle{lim_{x\to0}{\text{sin}_m(x)/x}=1}" /> (limit of sin x / x as x tends to 0)
-* Differentiation?!?
+* Differentiability
+* Differentials
 
 ### p-GTF
 * Get them to work...
@@ -21,10 +22,10 @@ This is a note on my numbering system. I am proving things in the order that I c
 
 ## Doing
 ### Wonky Sq
-
+* Continuity
 
 ### p-GTFs
-
+* Waiting for Integrals
 
 
 ## What I have done
