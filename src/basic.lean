@@ -67,7 +67,7 @@ def cscm (θ m : ℝ) := 1 / secm θ m
 /- 036
 
 -/
-lemma sinm_unfolded (x m : ℝ) : sinm x m = sin x / (|cos x| ^ m + |sin x| ^ m) ^ (1 / m) :=
+@[simp] lemma sinm_unfolded (x m : ℝ) : sinm x m = sin x / (|cos x| ^ m + |sin x| ^ m) ^ (1 / m) :=
 begin
   unfold sinm radius,
   rw [←div_eq_mul_one_div, add_comm],
@@ -77,7 +77,7 @@ end
 
 -/
 
-lemma cosm_unfolded (x m : ℝ) : cosm x m = cos x / (|cos x| ^ m + |sin x| ^ m) ^ (1 / m) :=
+@[simp] lemma cosm_unfolded (x m : ℝ) : cosm x m = cos x / (|cos x| ^ m + |sin x| ^ m) ^ (1 / m) :=
 begin
   unfold cosm radius,
   rw [←div_eq_mul_one_div, add_comm],
