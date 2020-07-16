@@ -221,8 +221,7 @@ begin
   rw sinm_add x (pi/2) m;
   rw [cos_half_pi, mul_zero, sin_half_pi],
   norm_num,
-  unfold cosm, 
-  unfold radius,
+  unfold cosm radius,
   simp only [one_div_eq_inv],
   ring,
 end
