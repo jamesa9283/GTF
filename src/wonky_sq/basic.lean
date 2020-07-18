@@ -136,12 +136,3 @@ begin
   apply add_nonneg,
   repeat {apply rpow_nonneg_of_nonneg, apply abs_nonneg},}
 end
-
-
-/-!
-## p-GTFs
-
-This is my speciality but it _needs_ integration, so this won't be able to be
-filled in until somebody produces some sort of integration in lean or I prove it
-out of spite for not having it.
--/

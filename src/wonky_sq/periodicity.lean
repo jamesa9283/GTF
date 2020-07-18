@@ -5,7 +5,7 @@ import analysis.special_functions.trigonometric
 
 
 -- sinm imports
- import basic zero_lemmas addition_formulae
+ import wonky_sq.basic wonky_sq.addition_formulae 
 
 /-!
 Here we are going to prove periodicity lemma's like sinm(2π) = 0 or even 
@@ -221,9 +221,7 @@ begin
   rw sinm_add x (pi/2) m;
   rw [cos_half_pi, mul_zero, sin_half_pi],
   norm_num,
-  unfold cosm radius,
-  simp only [one_div_eq_inv],
-  ring,
+  rw add_comm,
 end
 
 /- 034
@@ -263,7 +261,7 @@ begin
   rw [sin_pi, cos_pi, mul_neg_eq_neg_mul_symm, mul_zero, mul_one],
   norm_num,
   apply neg_inj,
-  rw [neg_neg, neg_div, neg_neg,inv_eq_one_div, sinm_unfolded],
+  rw [neg_neg, neg_div, neg_neg,inv_eq_one_div],
 end
 
 /- 040
@@ -276,7 +274,7 @@ begin
   rw [sin_pi, cos_pi, mul_neg_eq_neg_mul_symm, mul_zero, mul_one],
   norm_num,
   apply neg_inj,
-  rw [neg_neg, neg_div, neg_neg,inv_eq_one_div, cosm_unfolded],
+  rw [neg_neg, neg_div, neg_neg,inv_eq_one_div],
 end
 
 /- 041
@@ -289,5 +287,5 @@ begin
   rw [sin_pi, cos_pi, mul_neg_eq_neg_mul_symm, mul_zero, mul_one],
   norm_num,
   apply neg_inj,
-  rw [neg_neg, neg_div, neg_neg,inv_eq_one_div, cosm_unfolded],
+  rw [neg_neg, neg_div, neg_neg,inv_eq_one_div],
 end

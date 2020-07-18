@@ -5,7 +5,7 @@ import analysis.special_functions.trigonometric
 
 
 -- local imports
- import basic zero_lemmas
+ import wonky_sq.basic
 
 
 open real

@@ -1,8 +1,9 @@
 import tactic
-import basic
 import data.real.basic 
 import data.complex.exponential 
 import analysis.special_functions.pow
+
+ import wonky_sq.basic
 
 /-! 
 # Defining the functions at zero

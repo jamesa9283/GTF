@@ -1,7 +1,7 @@
 import analysis.special_functions.trigonometric
 
 
-import basic addition_formulae periodicity zero_lemmas
+import wonky_sq.basic
 
 --open real
 
