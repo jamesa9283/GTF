@@ -44,3 +44,6 @@ This is a note on my numbering system. I am proving things in the order that I c
 ## Known Issues
 * mathlib doesn't have integrals
 * 
+
+## References of proof
+* Mahdi, Hisham & Elatrash, Mohammed & Elmadhoun, Samar. (2014). On Generalized Trigonometric Functions. Journal of Mathematical Sciences and Applications. 2. 33-38. 10.12691/jmsa-2-3-2. 
