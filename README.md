@@ -17,6 +17,7 @@ This is a note on my numbering system. I am proving things in the order that I c
 * Differentials
 
 ### p-GTF
+* Define general pi
 * Get them to work...
 * Work out how to use FTC in lean.
 
