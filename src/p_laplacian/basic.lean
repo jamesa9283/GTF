@@ -46,41 +46,68 @@ example : strict_mono_decr_on pip {p : ℝ | 1 < p} :=
 begin
   rintros a fa b fb fab,
 
-    have a_pos : 0 < a := by sorry,
+    have one_lt_b : 1 < b,
+    {apply fb},
+    have one_lt_a : 1 < a,
+    {apply fa},
+    have a_pos : 0 < a := by linarith,
     have b_pos : 0 < b := by linarith,
-    have sin_pi_b_pos : 0 < sin(pi/b) := sorry,
-    have sin_pi_a_pos : 0 < sin(pi/a) := sorry,
-    have h : 0 < 2 * pi, {norm_num, exact pi_pos},
+    have two_pi_pos : 0 < 2 * pi, {norm_num, exact pi_pos},
+    have pi_a_lt_pi_b : pi/b < pi/a := by {apply div_lt_div', refl, exact fab, exact pi_pos, exact a_pos,},
+    have pi_on_b_pos : pi / b < pi := by {rw div_lt_iff b_pos, refine sub_pos.mp _, rw ←mul_one (pi), 
+      rw mul_assoc, rw one_mul (b), rw ←mul_sub, refine (div_lt_iff _).mp _,
+      /-  ⊢ 0 < b - 1  -/
+      { norm_num, exact one_lt_b,},
+      /-  ⊢ 0 / (b - 1) < pi  -/
+      {rw zero_div, exact pi_pos,},
+    },
+    have pi_on_a_pos : pi / a < pi := by {rw div_lt_iff a_pos, refine sub_pos.mp _, rw ←mul_one (pi), 
+      rw mul_assoc, rw one_mul (a), rw ←mul_sub, refine (div_lt_iff _).mp _,
+      /-  ⊢ 0 < b - 1  -/
+      { norm_num, exact one_lt_a,},
+      /-  ⊢ 0 / (b - 1) < pi  -/
+      {rw zero_div, exact pi_pos,},
+    },
 
+    have pi_b_pos : 0 < pi/b := by { refine div_pos _ b_pos, exact pi_pos,},
+    have pi_a_pos : 0 < pi/a := by { refine div_pos _ a_pos, exact pi_pos,},
+    have sin_pi_b_pos : 0 < sin(pi/b),
+    {exact sin_pos_of_pos_of_lt_pi pi_b_pos pi_on_b_pos,},
+    have sin_pi_a_pos : 0 < sin(pi/a),
+    {exact sin_pos_of_pos_of_lt_pi pi_a_pos pi_on_a_pos,},
+    
+    have sin_fa_lt_sin_fb : sin (pi/a) < sin (pi/b) := sorry,
+    /-/- This changes, depending on whether x ∈ (1, 2] or x ∈ (2, ∞). For x < 2, we get
+    that f a < f b, however for 2 < x we get f b < f a -/
+    {
+        apply sin_lt_sin_of_le_of_le_pi_div_two,
+        linarith,
+        {
+          sorry
+        },
+        -- pi/a < pi/b for all ∀ a < b : b > 2 which is false. So something else must be false 
+    sorry}, -/
 
   unfold pip,
   rw div_eq_mul_one_div,
   rw div_eq_mul_one_div _ (a*sin(pi/a)),
-  rw mul_lt_mul_left h,
+  rw mul_lt_mul_left two_pi_pos,
   repeat {rw one_div_eq_inv},
   rw inv_lt_inv,
-  {
   /-
 ⊢ a * sin (pi / a) < b * sin (pi / b)
 -/
-    have sin_fa_le_sin_fb : sin (pi/a) < sin (pi/b),
-    {
-      sorry
-    }, 
-    sorry  
-  },
-  {
+    {refine (div_lt_div_iff sin_pi_b_pos sin_pi_a_pos).mp _,
+    refine div_lt_div' _ sin_fa_lt_sin_fb b_pos sin_pi_a_pos,
+    exact le_of_lt fab,},
   /-
 ⊢ 0 < b * sin (pi / b)
 -/
-   refine mul_pos b_pos sin_pi_b_pos,
-  },
-  {
+   {refine mul_pos b_pos sin_pi_b_pos,},
   /-
 ⊢ 0 < a * sin (pi / a)
 -/  
-    refine mul_pos a_pos sin_pi_a_pos,
-  },
+    {refine mul_pos a_pos sin_pi_a_pos,},
 end
 
 #exit
