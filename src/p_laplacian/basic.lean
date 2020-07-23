@@ -28,7 +28,6 @@ def pip (p : ℝ) := (2 * pi)/ (p * sin (pi / p))
 
 -- def cosp (p : ℝ) := sorry
 
-
 example (h : a * b = 0) : a = 0 ∨ b = 0 := zero_eq_mul.mp (eq.symm h)
 
 private lemma lt_mul_eq_zero (fab : a < b) (fa : 0 < a) (fb : 0 < b) : 0 < a * b ↔ 0 < a ∨ 0 < b := 
@@ -42,7 +41,7 @@ begin
   exact fb, exact fa,
 end
 
-example : strict_mono_decr_on pip {p : ℝ | 1 < p} :=
+lemma pip_monotone_decreasing : strict_mono_decr_on pip {p : ℝ | 1 < p} :=
 begin
   rintros a fa b fb fab,
 
