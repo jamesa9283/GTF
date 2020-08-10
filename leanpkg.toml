@@ -1,0 +1,8 @@
+[package]
+name = "GTF"
+version = "0.1"
+lean_version = "leanprover-community/lean:3.16.5"
+path = "src"
+
+[dependencies]
+mathlib = {git = "https://github.com/leanprover-community/mathlib", rev = "6d0f40a6c1e7a435cfa4c2a799764fa68c49d15d"}
