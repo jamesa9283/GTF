@@ -24,6 +24,7 @@ This is a note on my numbering system. I am proving things in the order that I c
 ## Doing
 ### Wonky Sq
 * Continuity
+* Monotonicity of pi_p
 
 ### p-GTFs
 * Waiting for Integrals
@@ -35,7 +36,6 @@ This is a note on my numbering system. I am proving things in the order that I c
 * Proved the Zero lemmas
 * sinm, cosm periodicity of <img src="https://latex.codecogs.com/gif.latex?2\pi" />
 * Define the double angle formulae
-* <img src="https://latex.codecogs.com/gif.latex?|\text{sin}_m(x)|\leq0\text{%20and%20}|\text{cos}_m(x)|\leq0" /> (This was stupid anyways)
 * Prove that `tanm x = tan x`
 
 ### p-GTF
